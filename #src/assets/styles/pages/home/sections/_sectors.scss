@@ -1,0 +1,103 @@
+.sectors {
+    padding-top: 150px !important;
+    padding-bottom: 150px !important;
+    border: 1px solid rgb(56, 162, 40);
+    position: relative;
+    overflow: hidden;
+
+    &__title{
+        padding-left: 100px;
+        margin: 40px 11%;
+
+        &:before{
+            width: 122px !important;
+            height: 167px !important;
+            background-image: url('../images/sectionLogo-2.png');
+            top: -30px;
+            left: 8px;
+            transform: translateX(-50%);
+    
+        }
+
+        .point::after{
+            border-radius: 50%;
+        }
+
+    }
+
+	/* .sectors__cards */
+	&__cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 5%;
+        padding: 42px 6% 42px 6.8%;
+        position: relative;
+        z-index: 100;
+	}
+}
+
+
+.card {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &:last-child{
+        padding-left: 19%;
+    }
+
+
+    &__wrapImg{
+        min-height: 255px;
+        &:last-child{
+            align-self: end;
+        }
+    }
+
+    &__lessSize{
+        max-width: 225px;
+    }
+
+    &__img{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: 0 100%;
+    }
+
+
+	/* .card__name */
+	&__name {
+        font-size: 38px;
+        line-height: 46px;
+        padding: 40px 40px 25px 0;
+        flex: 1 1;
+	}
+
+
+	/* .card__link */
+	&__link {
+        width: 35px;
+        height: 35px;
+        background-repeat:no-repeat;
+        background-position:center;
+        background-size:contain;
+	}
+}
+
+
+
+.figure-1{
+    top: 73px;
+    right: 30%;
+}
+
+.figure-2{
+    right: 40px;
+    bottom: 19%;
+}
+
+.figure-3{
+    left: 24%;
+    bottom: -10%;
+}

@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 23" width="24" height="23">
+	<title>home</title>
+	<defs>
+		<image  width="24" height="23" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAMAAAAm/38fAAAAAXNSR0IB2cksfwAAAJ9QTFRF9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I113XzgAAADV0Uk5THLn996EKAMH/icvlr1X66y0fXFQPbJBIAbbg4sBzC4CCotsk5tMGYEORtRWj6bKPT7A1ML/9AdHeAAAAl0lEQVR4nLXO2Q6CQAwF0BG11gVRcUNHUVzAff3/b6MdCQYoT8b7cpueZKZKVaxqrQ6FqAZSmgLwHlsCtBk6AthdRKcnAPQH7rC4JyiJGo0pE4BPT21vNteLJYHmz30A06u1ORKDTQ62mGS3z8I3YQ6CMDqY4ZgF50T3nHm6pHDlvvGhd56sFB5JAzzNWwK8foV3Gej/QQy1exmrBFpPVQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="home">
+		<g id="Footer">
+			<g id="social">
+				<use id="linkedin" href="#img1" x="0" y="0" />
+			</g>
+		</g>
+	</g>
+</svg>

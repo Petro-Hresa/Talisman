@@ -1,0 +1,107 @@
+.chat {
+	display: flex;
+	background-color: $Background-3;
+	color:$colorText-1;
+	display: grid;
+	grid-template-columns: minmax(5rem, 37.4%) 2fr;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+
+	&:before,
+	&:after{
+		content: '';
+		display: block;
+		position:absolute;
+		background-repeat:no-repeat;
+		background-position: center;
+		background-size: contain;
+		z-index: 1;
+	}
+
+	&:before{
+	
+		background-image: url('../images/chatFigure-1.png');
+		right: 3%;
+		top: -6%;
+		width: 255px;
+		height: 304px;
+	}
+
+	&:after{
+		background-image: url('../images/chatFigure-2.png');
+		right: 13%;
+		bottom: 0;
+		width: 189px;
+		height: 304px;
+	}
+
+	&__images{
+		max-height: 66.6rem;
+		background-repeat:no-repeat !important;
+		background-position: left;
+		background-size:contain;
+		margin-left: 11%;
+		overflow: hidden;
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: 0 -80px;
+		}
+	}
+
+
+	
+	&__container{
+		display: flex;
+		align-items: flex-end;
+		padding-left: 20%;
+
+
+	}
+
+	&__content {
+		max-width: 26rem;
+	}
+	/* .chat__title */
+	&__title {
+		font-size: 100px;
+		line-height: 100px;
+		position: relative;
+		left: -20%;
+	}
+
+	&__text {
+		padding: 13% 0  9%;
+	}
+	/* .chat__description */
+	&__description {
+		font-size: 30px;
+		line-height: 46px;
+	}
+	/* .chat__slogan */
+	&__slogan {
+		color: $colorText-3;
+		font-size: 48px;
+		line-height: 46px;
+		margin-top: 16%;
+
+	}
+	/* .chat__buttons */
+	&__buttons {
+
+		padding: 9%;	
+	}
+	/* .chat__button */
+	&__button {
+		@extend .btn;
+		display: block;
+		margin-top: 25px;
+		min-width: 15.5rem;
+		background:transparent;
+		
+	}
+}
+
+

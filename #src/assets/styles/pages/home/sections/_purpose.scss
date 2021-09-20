@@ -1,0 +1,126 @@
+.purpose {
+	background-color: $Background-1;
+	position: relative;
+	padding: 100px 0 205px !important;
+	color:$colorText-1;
+    max-width: 20rem;
+
+	&:before, &:after{
+		content:'';
+		position: absolute;
+		display: block;
+	}
+
+    &:before{
+		top: 15px;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 530px;
+		height: 100px;
+		background-image: url('../images/points-1.svg');
+		background-repeat: no-repeat;
+    }
+
+    &:after{
+        width: 250px;
+        height: 250px;
+        bottom: 17%;
+        left: 8%;
+        background-color: rgb(101, 230, 65);
+        border-radius: 100% 0% 0% 100% / 0% 100% 0% 100% ;
+        transform: rotate(-15deg);
+
+	}
+
+    &__content{
+        max-width: 50rem;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+        z-index: 100;
+    }
+
+
+	/* .purpose__title */
+	&__title {
+		font-size: 100px;
+        margin-top: 112px;
+
+        &:before{
+            width: 122px !important;
+            height: 141px !important;
+            background-image: url('../images/sectionLogo-1.png');
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .point::after{
+            width: 15px;
+            height: 15px;
+            background-color: rgb(94, 6, 216);
+        }
+		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               line-height: 100px;
+	}
+
+
+	/* .purpose__article */
+	&__article {
+        font-size: 30px;
+        line-height: 46px;
+        font-family: $fontFamily-2;
+        margin-top: 30px;
+	}
+
+
+    &__wrap {
+        position: absolute;
+        right: 66px;
+        bottom: -10%;
+		width: 700px;
+		height: 700px;
+		border-radius:50%;
+        z-index: 1;
+        overflow: hidden;
+    }
+
+	/* .purpose__img */
+	&__img {
+        width: inherit;
+        height: inherit;
+		border-radius:50%;
+        z-index: 1;
+
+        img{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: fill;
+            position: relative;
+        }
+
+        &:before,
+		&:after{
+			content: '';
+            position: absolute;
+            display: block;
+            background-color: $Background-1;
+            z-index: 70;
+		}
+
+		&:before{
+            width: 50rem;
+            height: 30rem;
+            top: -9%;
+            left: -33%;
+            transform: rotate(-45deg);
+		}
+
+		&:after{
+			bottom: 25%;
+			left: 22%;
+			width: 358px;
+			height: 358px;
+            border-radius: 50%;
+		}
+	}
+}

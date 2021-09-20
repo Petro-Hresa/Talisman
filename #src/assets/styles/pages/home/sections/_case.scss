@@ -1,0 +1,125 @@
+.case {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 100px 0;
+    position: relative;
+
+    &:before{
+        content: '';
+        display: block;
+        position:absolute;
+        background-image: url('../images/points-3.svg');
+        right: 12%;
+        top: 7%;
+        width: 200px;
+        height: 304px;
+        background-repeat:no-repeat;
+        background-position: center;
+        background-size: contain;
+   
+    }
+
+    
+    &__title{
+        display: inline-block;
+        margin: 60px auto 0;
+        &:before{
+            width: 183px !important;
+            height: 189px !important;
+            background-image: url('../images/sectionLogo-4.png');
+            top: -43%;
+            left: -34%;
+        }
+
+        .point::after{
+            border-radius: 50%;
+            right: -2%;
+        }
+    }
+
+	/* .case__carousel */
+	&__carousel {
+        position: relative;
+        z-index: 100;
+
+   	    &:before,
+		&:after{
+			content: '';
+			display: block;
+			position:absolute;
+			background-repeat:no-repeat;
+			background-position: center;
+			background-size: contain;
+			z-index: -1;
+		}
+
+		&:before{
+			background-image: url('../images/caseFigure-3.svg');
+            left: 8%;
+            bottom: -1%;
+            width: 510px;
+			height: 510px;
+		}
+
+		&:after{
+			background-image: url('../images/caseFigure-2.svg');
+			top: -10%;
+			right: 8%;
+			width: 358px;
+			height: 358px;
+	
+		}
+
+    }
+}
+
+
+
+.case__carousel .owl-item .active > .card{
+   
+}
+
+.case__carousel .owl-stage {
+    right: 160px;
+}
+
+
+.case{
+  
+    .card {
+        padding: 0;
+
+        &__inner{
+            width: 100%;
+        }
+
+        /* .card__img */
+        &__img {
+            height: 482px !important;
+            background-color: $Background-4;
+        }
+
+        &__wrapContent{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px 0;
+        }
+
+        /* .card__name */
+        &__name {
+            padding: 0;
+           
+        }
+        /* .card__link */
+        &__link {
+        }
+
+       
+
+
+    }
+    
+}
+

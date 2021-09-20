@@ -1,0 +1,73 @@
+
+.footer {
+    width: 100%;
+    // border: 1px solid #000000;
+    margin: 115px 0rem  0px;
+
+    &__logo{
+        width: 315px;
+        height: 165px;
+    }
+	/* .footer__box */
+	&__box {
+        display: flex;
+        align-items: center;
+        margin-top: 60px;
+
+	}
+
+	/* .footer__networks */
+	&__networks {
+
+
+	}
+
+  
+}
+
+//  .footer .nav {
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+
+//     /* .nav__list */
+//     &__list {
+//         @extend.nav;
+//     }
+
+
+//     /* .nav__item */
+//     &__item {
+//         font-size: 22px;
+//         line-height: 46px;
+//         font-family: "RaptorPremium-Bold";
+//         text-align: right;
+//         margin-left: 68px;
+//     }
+
+
+//     /* .nav__link */
+//     &__link {
+//         &:last-child{
+//             padding-right: 0;
+//         }
+//     }
+// }
+
+
+.networks {
+
+	/* .networks__item */
+	&__link {
+        margin-right: 72px;
+	}
+}
+
+
+.privat {
+    color: $colorText-2;
+    padding-left: 72px;
+	/* .privat__link */
+	&__link {
+	}
+}

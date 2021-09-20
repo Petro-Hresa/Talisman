@@ -1,0 +1,16 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 27" width="15" height="27">
+	<title>home</title>
+	<defs>
+		<image  width="15" height="27" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAbCAMAAACUTyX1AAAAAXNSR0IB2cksfwAAAGlQTFRF9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7I9Y7Il12nWgAAACN0Uk5TAAZnwOz/CxzPDsxgvA3u+3hIQAK3oEFQvksBCAn+Nrg/749l8QbzAAAAZUlEQVR4nM3OxwrAIBBFUVMmvU6K6e3/PzI6gqAE3Oat7mEQZIzm+UEIYpFinIBaqq4ZGM7BdKFdkiuZddMidmQ69UyPPHx75JyTJxHzwsDYanlzerfeH4hIeYq43P/5g2/ph/IFS7EIPomEWfUAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="home">
+		<g id="Footer">
+			<g id="social">
+				<use id="facebook" href="#img1" x="0" y="0" />
+			</g>
+		</g>
+	</g>
+</svg>

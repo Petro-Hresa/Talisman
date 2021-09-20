@@ -1,0 +1,18 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36" width="36" height="36">
+	<title>home</title>
+	<defs>
+		<image  width="36" height="36" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkBAMAAAATLoWrAAAAAXNSR0IB2cksfwAAACpQTFRFDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKiDvKihOFM3gAAAA50Uk5TAID/B8kPyhDLzBFAUe1w5aZqAAAAeUlEQVR4nGNggAJGAQZ0IKSILsKopISuzERJCV0ZqxOmshAsypIwlYVhKmPHoqwMi7ImTGUVxCmrxFTGNQmsbDcyOAtWpoQOBDCFFIkSEsBmPBZH4HcqO6YiTG9j8TUWRZgBjRkdWCINM2qxJAAsyQRLYsKS5JASJgDUIjLR44XRXQAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="home">
+		<g id="sectors">
+			<g id="1-4">
+				<g id="3">
+					<use id="Layer 1" href="#img1" x="0" y="0" />
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

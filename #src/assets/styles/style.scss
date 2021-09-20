@@ -1,0 +1,23 @@
+
+/* 0-Base*/
+@import "base/base";
+@import "base/mixsins";
+@import "base/variables";
+
+/* 1-Fonts*/
+@import "fonts/fonts";
+
+/* 2-Partials*/
+@import "pages/partials/header";
+@import "pages/partials/footer";
+
+/* 3-Pages*/
+@import "pages/home/_home";
+
+
+/* 4-Bootstrap */
+ @import 'vendors/_bootstrap-customized';
+
+ /* 5-owl-carousel */
+ @import 'vendors/owl.carousel.min';
+ @import 'vendors/owl.theme.default.min';
