@@ -1,10 +1,11 @@
 
 .header {
-	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	margin-bottom: 125px;
+	// border: 1px solid rgb(205, 24, 24);
+	margin: 20px;
 
 	
 	/* .header__content */
@@ -79,60 +80,67 @@
 		z-index: 100;
 	}
 
-	&__scroll{
-		color:$colorText-2;
-		position: relative;
-		align-self: center;
+	// &__scroll{
+	// 	color:$colorText-2;
+	// 	position: relative;
+	// 	align-self: center;
 	
-	   &:after{
-			content:'';
-			position: absolute;
-			left: calc(50% - 1px);
-			top: calc(100% + 4px);;
-			display: block;
-			width: 2px;
-			height: 40px;
-			background-color: $Background-1;
+	//    &:after{
+	// 		content:'';
+	// 		position: absolute;
+	// 		left: calc(50% - 1px);
+	// 		top: calc(100% + 4px);;
+	// 		display: block;
+	// 		width: 2px;
+	// 		height: 40px;
+	// 		background-color: $Background-1;
 
-	   }
+	//    }
 
-	}
+	// }
 
 }
 	
 
 
-.nav {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+// .nav {
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
 
-	/* .nav__list */
-	&__list {
-		@extend.nav;
-	}
-
-
-	/* .nav__item */
-	&__item {
-		font-size: 22px;
-		line-height: 46px;
-		font-family: "RaptorPremium-Bold";
-		text-align: right;
-		margin-left: 68px;
-	}
+// 	/* .nav__list */
+// 	&__list {
+// 		@extend.nav;
+// 	}
 
 
-	/* .nav__link */
-	&__link {
-		&:last-child{
-			padding-right: 0;
-		}
-	}
-}
+// 	/* .nav__item */
+// 	&__item {
+// 		font-size: 20px;
+// 		font-family: "RaptorPremium-Bold";
+// 		text-align: right;
+// 		margin-left: 68px;
+// 	    text-align: left;
+// 		@media screen and(min-width: 1620px) {
+// 			font-size: 22px;
+// 		}
+// 	}
+
+
+// 	/* .nav__link */
+// 	&__link {
+// 		&:last-child{
+// 			padding-right: 0;
+// 		}
+// 	}
+// }
 
 
 .logo {
-	width: 380px;
-	height: 95px;
+	width: 280px;
+	height: 65px;
+	@media screen and(min-width: 1620px) {
+		width: 380px;
+		height: 95px;
+	}
 }
