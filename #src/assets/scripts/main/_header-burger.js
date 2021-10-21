@@ -3,10 +3,12 @@ let querSell = x => document.querySelector(x);
 // click putton burger
 (function(){
 
-	querSell('.header__border-burger').addEventListener('click', function(){
-        //   querSell('.sidebar').classList.toggle('sidebar-active');
-       
+	querSell('.burger').addEventListener('click', function(){
 
+        
+         
+          querSell('.nav').classList.toggle('nav_active');
+    
         // querSell('.header__inner').classList.toggle('inner-left');
 
         // querSell('.main').classList.toggle('block-left');
@@ -23,11 +25,11 @@ let querSell = x => document.querySelector(x);
 
 
 // scroll fixed
-let lastScroll = 150;
-const scrollPosition = ()=>  window.pageYOffset;
+// let lastScroll = 150;
+// const scrollPosition = ()=>  window.pageYOffset;
 // const containHeight =()=> querSell('.header__inner').classList.contains("header-active");
 
-window.addEventListener("scroll", function(){
+// window.addEventListener("scroll", function(){
 
 
     // Scrill down
@@ -43,4 +45,4 @@ window.addEventListener("scroll", function(){
         
         // lastScroll = scrollPosition();
    
-})
+// })

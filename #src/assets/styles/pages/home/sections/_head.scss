@@ -1,0 +1,233 @@
+
+.head {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+
+    @media screen and(max-width: $md) {
+      min-height: calc(100vh - 55px);
+    }
+
+    @media screen and(min-width: $md) {
+      display: block;
+    }
+	
+
+	/* .header__content */
+	&__content {
+		display: flex;
+	 	padding: 6.8% 0 0;
+        flex-direction: column;
+        justify-content: center;
+		position: relative;
+        z-index: 100;
+
+        @media screen and(max-width: $lg) {
+            margin: 0;
+            padding-top: 0;
+            flex: 1 1 auto;
+            justify-content: space-evenly;
+        }
+
+        @media screen and(min-width: $lg) {
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        @media screen and(min-width: 1920px) {
+            position:static;
+        }
+
+        &:before{
+            @extend .figure;
+            position: absolute;
+            content: '';
+            z-index: -1;
+            width: 310px;
+            height: 310px;
+            right:  -1.2%;
+            top: 9.5%;
+            background-image: url('../images/figure-1.png');
+
+            @media screen and(max-width: $lg) {
+              transform: rotate(36deg);
+              right: -25%;
+              display: none;
+            }
+     
+            @media screen and(min-width: 1920px) {
+                top: 14.2rem;
+                right: 3.2%;
+                z-index: 100;
+            }
+        }
+
+	}
+
+
+	/* .header__title */
+	&__title {	
+	 	font-size: 6.25rem;
+		line-height: 100px;
+        text-shadow: 2px 1px 1px rgba(0, 0, 0, 0.277);
+		position: relative;
+		z-index: 100;
+      
+        &:after{
+			@extend .triangle;
+            position: absolute;
+            content: '';
+            bottom: -12%;
+			left: 5%;
+			background-color: rgb(230, 211, 65);
+			transform: rotate(8deg);
+            bottom: -52%;
+            left: -24.5%;
+            z-index: -1;
+            @media screen and(max-width: $lg) {
+               display: none;
+            }
+        }
+
+        @media screen and(max-width:$md) {
+            font-size: clamp(2rem, 7.5vw, 5.5rem); 
+            line-height: clamp(2rem, 7.5vw, 5.5rem);
+        }
+
+        @media screen and(min-width: $md) {
+            padding: 4.5rem 0 2.5rem;
+        }
+
+        @media screen and(min-width: $lg) {
+            max-width: 50%;
+            padding: 5.9rem 0 0 ;
+        }
+
+        @media screen and(max-width: $lg) {
+            text-align: center;
+        }
+
+        @media screen and(max-width: 1440px) {
+            font-size: clamp(3.5rem,  7vw, 6.25rem); 
+            line-height: clamp(3.5rem, 7vw, 6.25rem);
+       
+        }
+
+        @media screen and(min-width: $xxl) {
+            max-width: 46.8rem;
+        }
+
+	 	span::after{
+			border-radius: 50%;
+		}
+	}
+
+
+	&__images{
+		position: relative;
+        flex-basis: 100%;
+        margin-left: 0;
+        min-height: 15rem;
+     
+        &:after{
+            position: absolute;
+            content: '';
+            width: 358px;
+            height: 358px;
+            background-image: url('../images/figure-2.png');
+            @extend .figure;
+            left: -4%;
+            bottom: -12%;
+            z-index: -1;
+            @media screen and(max-width: $lg) {
+                    display: none;
+            }
+        }
+
+        @media screen and(max-width: $sm) {
+           margin-left: -15px;
+           margin-right: -15px;
+        }
+        @media screen and(min-width: $sm){
+            min-height: 33vh;
+           	max-height: 578px;
+        }
+
+        @media screen and(min-width: $lg){
+            margin-left: 2.5%;
+        }
+
+        @media screen and(min-width: $lg) and(max-width:1399px) {
+            padding-bottom: 45%;
+        }
+
+        @media screen and(min-width: $xxl) {
+            min-width: 36rem;
+            max-width: 36rem;
+            height: 578px;
+        }
+
+        @media screen and(min-width: 1920px) {
+            transform: translateX(4rem);
+        }
+
+        img{
+            position: absolute;
+            object-fit: cover;
+            margin-left: 0;
+            box-shadow: 0 0 1rem 0 $Background-4;
+
+            @media screen and(min-width: $lg) {
+                border-radius:  0 0 0 100%;
+            }
+
+        }
+
+	}
+
+
+	.scrollDown{
+		color:$colorText-2;
+		position: relative;
+        text-align: center;
+        margin-top: 1rem;
+        height: 10vh;
+        @media screen and(min-width: $xxl) {
+            margin-top: 5.5rem;
+        }
+	
+	   &:after{
+			content:'';
+			position: absolute;
+			left: 50%;
+			top: 25px;
+			display: block;
+			width: 2px;
+			height: 4.1vh;
+			background-color: $Background-1;
+
+	   }
+
+            
+       &:before{
+        display: none;
+        position: absolute;
+        content: '';
+        width: 358px;
+        height: 358px;
+        background-image: url('../images/figure-2.png');
+        @extend .figure;
+        left: 50%;
+        bottom: 2%;
+        transform: translate(-50%);
+        z-index: 1;
+        @media screen and(max-width: $lg) {
+            display: block;
+            top: -9rem;
+        }
+    }
+
+	}
+
+}

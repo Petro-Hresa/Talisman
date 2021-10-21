@@ -91,6 +91,46 @@ const images = () => {
 }
 
 
+const fontsStyle = (params) => {
+    let file_content = fs.readFileSync(srcPath + 'assets/styles/fonts/_fonts.scss');
+    if (file_content == '') {
+      fs.writeFile(srcPath + 'assets/styles/fonts/_fonts.scss', '', cb);
+      return fs.readdir(path.build.fonts, function (err, items) {
+        if (items) {
+          let c_fontname;
+          for (var i = 0; i < items.length; i++) {
+            let fontname = items[i].split('.');
+            fontname = fontname[0];
+            if (c_fontname != fontname) {
+              fs.appendFile(srcPath + 'assets/styles/fonts/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
+            }
+            c_fontname = fontname;
+          }
+        }
+      })
+    }
+  }
+
+
+const fonts = () => {
+    src(path.src.fonts)
+   .pipe(ttf2woff())
+   .pipe(dest(path.build.fonts))
+    return src(path.src.fonts)
+   .pipe(ttf2woff2())
+   .pipe(dest(path.build.fonts))
+}
+
+
+gulp.task('otf2ttf', () => {
+    return gulp.src([srcPath + 'assets/fonts/*.otf'])
+    .pipe(fonter({
+        formats: ['ttf']
+    }))
+    .pipe(dest(distPath + 'assets/fonts/'))
+});
+
+
 const html = () =>{
     panini.refresh();
     return src(path.src.html)
@@ -139,68 +179,25 @@ const js = () => {
 }
 
 
-const fonts = () => {
-     src(path.src.fonts)
-    .pipe(ttf2woff())
-    .pipe(dest(path.build.fonts))
-     return src(path.src.fonts)
-    .pipe(ttf2woff2())
-    .pipe(dest(path.build.fonts))
-}
-
-gulp.task('otf2ttf', () => {
-    return gulp.src([srcPath + 'assets/fonts/*.otf'])
-    .pipe(fonter({
-        formats: ['ttf']
-    }))
-    .pipe(dest(distPath + 'assets/fonts/'))
-});
-
-const fontsStyle = (params) => {
-    let file_content = fs.readFileSync(srcPath + 'assets/styles/fonts/_fonts.scss');
-    if (file_content == '') {
-      fs.writeFile(srcPath + 'assets/styles/fonts/_fonts.scss', '', cb);
-      return fs.readdir(path.build.fonts, function (err, items) {
-        if (items) {
-          let c_fontname;
-          for (var i = 0; i < items.length; i++) {
-            let fontname = items[i].split('.');
-            fontname = fontname[0];
-            if (c_fontname != fontname) {
-              fs.appendFile(srcPath + 'assets/styles/fonts/_fonts.scss', '@include font("' + fontname + '", "' + fontname + '", "400", "normal");\r\n', cb);
-            }
-            c_fontname = fontname;
-          }
-        }
-      })
-    }
-  }
-  
-// function cb() { }
-
-const clean = (cb) => {
-    return del(path.clean);
-
-}
-
-
 const watchFiles = () => {
+    gulp.watch([path.watch.img], images);
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
-    gulp.watch([path.watch.img], images);
 }
 
-const build = gulp.series(gulp.parallel( fonts, js, css, html, images),fontsStyle, clean);
-const watch = gulp.parallel( watchFiles, serve, build);
+
+const clean = () => del(path.clean);
+const build = gulp.series(gulp.parallel( images, fontsStyle, fonts, html,  css, js), clean);
+const watch = gulp.parallel(build, serve, watchFiles);
 
 
 /* 2-Exports_Tasks */
+exports.images = images;
 exports.html = html;
 exports.css = css;
 exports.js = js;
-exports.images = images;
-exports.fonts = fonts;
+exports.fonts = fonts;                                                                                                  
 exports.fontsStyle = fontsStyle;
 exports.build = build;
 exports.watch = watch;

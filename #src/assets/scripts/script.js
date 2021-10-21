@@ -1,7 +1,8 @@
 /*_Function  support browser webp css_*/
-
+@@include('main/_header-burger.js');
 @@include('vendors/owl.carousel.min.js');
 
+// let querSell = x => document.querySelector(x);
 // $(document).ready(function(){
 //     // var owl = $(".case__carousel.owl-carousel").owlCarousel({
 //     // loop:true,
@@ -33,3 +34,57 @@
 //     // })
 
 // });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    window.addEventListener('resize' , debounce(resizePage,  11));
+  
+    resizePage()
+
+
+    
+    function resizePage(){
+
+  
+
+
+      if(window.innerWidth > 1400) querSell('.nav').classList.remove('nav_active');
+      
+     else{
+        let headerHeight =  querSell('.header__inner').offsetHeight + 'px';
+        querSell('.header').style.height = headerHeight;
+      }
+
+    } 
+  
+  
+    // Function debonce
+    function debounce(callback , delay){
+      let timer;
+      return function(...args){
+        clearTimeout(timer);
+        timer = setTimeout(()=> {
+          callback.apply(this , args)
+        }, delay);
+      }
+    }
+  
+  
+    // function throttle(callback , delay){
+  
+    //   let isWaiting = false;
+  
+    //   return function(...args){
+    //         if(isWaiting) return;
+    //         callback.apply(this , args);
+    //         isWaiting = true;
+  
+    //         setTimeout(()=> isWaiting = false, delay)
+    //   }
+  
+    // }
+  
+  })
