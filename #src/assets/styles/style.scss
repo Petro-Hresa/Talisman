@@ -9,7 +9,7 @@
 
 /* 2-Partials*/
 @import "pages/partials/header";
-@import "pages/partials/footer";
+// @import "pages/partials/footer";
 
 /* 3-Pages*/
 @import "pages/home/_home";
@@ -20,4 +20,4 @@
 
  /* 5-owl-carousel */
  @import 'vendors/owl.carousel.min';
- @import 'vendors/owl.theme.default.min';
+ @import 'vendors/owl.theme.default';

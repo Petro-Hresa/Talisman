@@ -33,34 +33,36 @@ const distPath = 'dist/';
 const fs = require('fs');
 // const tsProject = typeScript.createProject('tsconfig.json')
 
+
 const path = {
     build: {
+        img:    distPath + "assets/images/",
         html:   distPath,
         css:    distPath + "assets/styles/",
         js:     distPath + "assets/scripts/",
-        img:    distPath + "assets/images/",
         fonts:  distPath + "assets/fonts/"
+
     },
     src: {
+        img:    srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         html:   srcPath + "*.html",
         css:    srcPath + "assets/styles/style.scss",
         js:     srcPath + "assets/scripts/script.js",
-        img:    srcPath + "assets/images/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+     
         fonts:  srcPath + "assets/fonts/**/*.{eot,woff,woff2,ttf,svg}"
     },
     watch: {
+        img:    srcPath + "assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
         html:   srcPath + "**/*.html",
         css:    srcPath + "assets/styles/**/*.scss",
         js:     srcPath + "assets/scripts/**/*.js",
-        img:    srcPath + "assets/img/**/*.{jpg,png,svg,gif,ico,webp,webmanifest,xml,json}",
+
     },
     clean: "./" + distPath + "/"
 }
 
 
-
 /* 1-Tasks */
-
 function serve() {
     browserSync.init({
         server: {
@@ -71,116 +73,25 @@ function serve() {
     });
 }
 
-function html(cb) {
 
-    panini.refresh();
-    return src(path.src.html)
-    .pipe(panini({
-        root:       srcPath,
-        layouts:    srcPath + 'layouts/',
-        partials:   srcPath + 'partials/',
-        helpers:    srcPath + 'helpers/',
-        data:       srcPath + 'data/'
-    }))
-
-    .pipe(dest(path.build.html))
-    .pipe(browserSync.reload({stream: true}));
-
-}
-
-function css(cb) {
-
-    return src(path.src.css)
-    .pipe(sass({
-        includePaths: './node_modules/',
-        outputStyle: "expanded"
-    }))
-    .pipe(autoprefixer({
-        cascade: true
-    })) 
-
-    .pipe(groupmedia())
-    .pipe(cssbeautify())
-    
-
-    .pipe(dest(path.build.css))
-
-    .pipe(cssnano({
-        zindex: false,
-        discardComments: {
-            removeAll: true
-        }
-    }))
-    .pipe(removeComments())
-    .pipe(rename({
-        extname: ".min.css"
-    }))
-    .pipe(dest(path.build.css))
-    .pipe(browserSync.stream());
-
-}
-
-function js(cb) {
-
-    return src(path.src.js)
-    // .pipe(tsProject())
-    .pipe(fileinclude())
-    .pipe(dest(path.build.js))
-    .pipe(uglify())
-    .pipe(rename({
-        extname: ".min.js"
-    }))
-    .pipe(dest(path.build.js))
-    .pipe(browserSync.stream())
-
-}
-
-function images(cb) {
-
+const images = () => {
     return src(path.src.img)
-    .pipe(
-        webp({
-          quality: 70
-        })
-    )
+    .pipe(webp({quality: 70}))
     .pipe(dest(path.build.img))
     .pipe(src(path.src.img))
-
     .pipe(imagemin({
-          
         quality: 95,
         progressive: true,
         svgoPlugins: [{removeViewBox: false}],
         interlaced: true,
         optimizationLevel: 3,
-
     }))
     .pipe(dest(path.build.img))
-    .pipe(browserSync.stream());
-
+    .pipe(browserSync.stream())
 }
 
-function fonts(cb) {
 
-     src(path.src.fonts)
-    .pipe(ttf2woff())
-    .pipe(dest(path.build.fonts))
-
-     return src(path.src.fonts)
-    .pipe(ttf2woff2())
-    .pipe(dest(path.build.fonts))
-
-}
-
-gulp.task('otf2ttf', function () {
-    return gulp.src([srcPath + 'assets/fonts/*.otf'])
-    .pipe(fonter({
-        formats: ['ttf']
-    }))
-    .pipe(dest(distPath + 'assets/fonts/'))
-});
-
-function fontsStyle(params) {
+const fontsStyle = (params) => {
     let file_content = fs.readFileSync(srcPath + 'assets/styles/fonts/_fonts.scss');
     if (file_content == '') {
       fs.writeFile(srcPath + 'assets/styles/fonts/_fonts.scss', '', cb);
@@ -199,34 +110,97 @@ function fontsStyle(params) {
       })
     }
   }
-  
-  function cb() { }
 
 
-function clean(cb) {
-    return del(path.clean);
-
+const fonts = () => {
+    src(path.src.fonts)
+   .pipe(ttf2woff())
+   .pipe(dest(path.build.fonts))
+    return src(path.src.fonts)
+   .pipe(ttf2woff2())
+   .pipe(dest(path.build.fonts))
 }
 
-function watchFiles() {
+
+gulp.task('otf2ttf', () => {
+    return gulp.src([srcPath + 'assets/fonts/*.otf'])
+    .pipe(fonter({
+        formats: ['ttf']
+    }))
+    .pipe(dest(distPath + 'assets/fonts/'))
+});
+
+
+const html = () =>{
+    panini.refresh();
+    return src(path.src.html)
+    .pipe(panini({
+        root:       srcPath,
+        layouts:    srcPath + 'layouts/',
+        partials:   srcPath + 'partials/',
+        helpers:    srcPath + 'helpers/',
+        data:       srcPath + 'data/'
+    }))
+    .pipe(dest(path.build.html))
+    .pipe(browserSync.reload({stream: true}));
+}
+
+
+const css = () => {
+    return src(path.src.css)
+    .pipe(sass({
+        includePaths: './node_modules/',
+        outputStyle: "expanded"
+    }))
+    .pipe(autoprefixer({cascade: true})) 
+    .pipe(groupmedia())
+    .pipe(cssbeautify())
+    .pipe(dest(path.build.css))
+    .pipe(cssnano({
+        zindex: false,
+        discardComments: {removeAll: true}
+    }))
+    .pipe(removeComments())
+    .pipe(rename({extname: ".min.css"}))
+    .pipe(dest(path.build.css))
+    .pipe(browserSync.stream())
+}
+
+
+const js = () => {
+    return src(path.src.js)
+    // .pipe(tsProject())
+    .pipe(fileinclude())
+    .pipe(dest(path.build.js))
+    .pipe(uglify())
+    .pipe(rename({extname: ".min.js"}))
+    .pipe(dest(path.build.js))
+    .pipe(browserSync.stream())
+}
+
+
+const watchFiles = () => {
+    gulp.watch([path.watch.img], images);
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
     gulp.watch([path.watch.js], js);
-    gulp.watch([path.watch.img], images);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, images, fonts),fontsStyle);
-const watch = gulp.parallel(build, watchFiles, serve);
 
+const clean = () => del(path.clean);
+const build = gulp.series(gulp.parallel( images, fontsStyle, fonts, html,  css, js), clean);
+const watch = gulp.parallel(build, serve, watchFiles);
 
 
 /* 2-Exports_Tasks */
+exports.images = images;
 exports.html = html;
 exports.css = css;
 exports.js = js;
-exports.images = images;
-exports.fonts = fonts;
+exports.fonts = fonts;                                                                                                  
 exports.fontsStyle = fontsStyle;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;
+
+

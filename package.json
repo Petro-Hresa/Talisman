@@ -38,6 +38,7 @@
     ],
     "dependencies": {
         "bootstrap": "^5.0.0-beta1",
+        "g": "^2.0.1",
         "gulp-typescript": "^6.0.0-alpha.1",
         "jquery": "^3.6.0",
         "typescript": "^4.1.3"
