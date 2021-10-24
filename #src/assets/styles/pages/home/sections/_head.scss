@@ -3,14 +3,18 @@
     display: flex;
     flex-direction: column;
     justify-content:center;
+    overflow: hidden;
 
-    @media screen and(max-width: $md) {
+    @media screen and (max-width: $md) {
       min-height: calc(100vh - 55px);
     }
 
-    @media screen and(min-width: $md) {
+    @media screen and (min-width: $md) {
       display: block;
     }
+
+
+
 	
 
 	/* .header__content */
@@ -35,10 +39,6 @@
             justify-content: center;
         }
 
-        @media screen and(min-width: 1920px) {
-            position:static;
-        }
-
         &:before{
             @extend .figure;
             position: absolute;
@@ -57,8 +57,6 @@
             }
      
             @media screen and(min-width: 1920px) {
-                top: 14.2rem;
-                right: 3.2%;
                 z-index: 100;
             }
         }
@@ -194,7 +192,7 @@
         margin-top: 1rem;
         height: 10vh;
         @media screen and(min-width: $xxl) {
-            margin-top: 5.5rem;
+            margin: 5.5rem 0 3.2rem;
         }
 	
 	   &:after{

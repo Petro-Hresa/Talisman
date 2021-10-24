@@ -1,7 +1,9 @@
 .purpose {
+    @extend .section_padding;
 	background-color: $Background-1;
 	position: relative;
-	padding: 100px 0 205px !important;
+	padding-top: 5% !important;
+    padding-bottom:11% !important;
 	color:$colorText-1;
     max-width: 20rem;
 
@@ -19,6 +21,10 @@
 		height: 100px;
 		background-image: url('../images/points-1.svg');
 		background-repeat: no-repeat;
+
+        @media screen and(max-width:$lg) {
+            display: none;
+        }
     }
 
     &:after{
@@ -29,7 +35,9 @@
         background-color: rgb(101, 230, 65);
         border-radius: 100% 0% 0% 100% / 0% 100% 0% 100% ;
         transform: rotate(-15deg);
-
+        @media screen and(max-width:$lg) {
+            display: none;;
+        }
 	}
 
     &__content{
@@ -45,6 +53,7 @@
 	&__title {
 		font-size: 100px;
         margin-top: 112px;
+        @extend .sections__title;
 
         &:before{
             width: 122px !important;
@@ -53,13 +62,39 @@
             bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
+            @media screen and(max-width:$md) {
+                bottom: 70%;
+            }
+            @media screen and(max-width:$lg) {
+                width: clamp(5rem, 12.5vw, 8.5rem) !important; 
+              ;
+            }
         }
         .point::after{
-            width: 15px;
-            height: 15px;
+            width: 5.5%;
+            right: -5%;
             background-color: rgb(94, 6, 216);
+            border-radius: 50%;
         }
-		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               line-height: 100px;
+
+        @media screen and(max-width:$sm) {
+            margin-top: 6.8rem;
+          }
+
+        @media screen and(max-width:$md) {
+            font-size: clamp(2rem, 7.5vw, 5.5rem); 
+            line-height: clamp(2rem, 7.5vw, 5.5rem);
+        }
+
+        @media screen and(max-width:$lg) {
+          margin-top: 20%;
+          padding: 0 1rem;
+        }
+      
+        @media screen and(max-width: $xxl) {
+            font-size: clamp(3.5rem,  7vw, 6.25rem); 
+            line-height: clamp(3.5rem, 7vw, 6.25rem);
+        }
 	}
 
 
@@ -69,58 +104,67 @@
         line-height: 46px;
         font-family: $fontFamily-2;
         margin-top: 30px;
+
+        @media screen and(max-width:$lg) {
+            font-size: clamp(1.3rem, 5vw, 1.8rem); 
+            line-height: clamp(1.8rem, 5vw, 2.8rem);
+        }
 	}
 
-
-    &__wrap {
-        position: absolute;
-        right: 66px;
-        bottom: -10%;
-		width: 700px;
-		height: 700px;
-		border-radius:50%;
-        z-index: 1;
-        overflow: hidden;
-    }
 
 	/* .purpose__img */
 	&__img {
+        margin: 2rem auto;
+        max-width: 720px;
+      
+        @media screen and(min-width:$xxl) {
+            width: 720px;
+            position: absolute;
+            right: -3rem;
+            bottom: -4%;
+            height: 375px;
+            transform: rotate(-45deg);
+            overflow: hidden;
+        }
+	}
+
+    &__innerImg {
         width: inherit;
-        height: inherit;
-		border-radius:50%;
-        z-index: 1;
+        @media screen and (min-width:$xxl){
+            height: 720px;
+            position: relative;
+            transform: rotate(45deg);
+            top:-22rem;
+            border-radius: 50%;
+        }
 
         img{
             width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: fill;
-            position: relative;
+            @media screen and (min-width:$xxl) {
+                height: 100%;
+                border-radius: 50%;
+                object-fit: fill;
+                position: relative;
+    
+            }
         }
 
-        &:before,
-		&:after{
-			content: '';
-            position: absolute;
-            display: block;
-            background-color: $Background-1;
-            z-index: 70;
-		}
 
-		&:before{
-            width: 50rem;
-            height: 30rem;
-            top: -9%;
-            left: -33%;
-            transform: rotate(-45deg);
-		}
-
-		&:after{
-			bottom: 25%;
-			left: 22%;
-			width: 358px;
-			height: 358px;
-            border-radius: 50%;
-		}
-	}
+        @media screen and (min-width:$xxl) {
+            &:before{
+                content: '';
+                position: absolute;
+                display: block;
+                z-index: 70;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 355px;
+                height: 355px;
+                border-radius: 50%;
+                background-color: $Background-1;
+            }
+      
+        }
+    }
 }

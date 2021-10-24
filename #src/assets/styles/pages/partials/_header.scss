@@ -16,14 +16,14 @@
 			padding-top: 2rem !important;
 		}
 
-		@media screen and(max-width: $xxl) {
-			position: fixed;
-			z-index: 10000;
-			left: 0;
-			top: 0;
-			width: 100%;
+		// @media screen and(max-width: $xxl) {
+		// 	position: fixed;
+		// 	z-index: 10000;
+		// 	left: 0;
+		// 	top: 0;
+		// 	width: 100%;
 		
-		}
+		// }
 
 	}
 
@@ -63,6 +63,8 @@
 			transition: all .3s linear;
 			z-index: 9000;
 			overflow: hidden;
+
+			
 		}
 
 	
@@ -110,22 +112,24 @@
 
 
 		
-		&_active{
-			width: 100% !important;
-			height: 100vh !important;
-			overflow: hidden;
+		@media screen and(max-width: $xxl) {
+	
+			&_active{
+				width: 100% !important;
+				height: 100vh !important;
+				overflow: hidden;
 
-		
+			
 
-			.nav__list{
-				opacity: 1;
-				transition: opacity .5s linear;
+				.nav__list{
+					opacity: 1;
+					transition: opacity .5s linear;
+				}
+
+			
+			
 			}
-
-		
-		
 		}
-
 
 
 	
