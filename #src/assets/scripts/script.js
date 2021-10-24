@@ -46,14 +46,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     
-    function resizePage(){
+    function resizePage(e){
 
-  
+      e.preventDefault()
 
 
-      if(window.innerWidth > 1400) querSell('.nav').classList.remove('nav_active');
+      if(window.innerWidth > 1400) 
+      // querSell('.nav').classList.remove('nav_active');
       
-     else{
+     {}else{
         let headerHeight =  querSell('.header__inner').offsetHeight + 'px';
         querSell('.header').style.height = headerHeight;
       }
