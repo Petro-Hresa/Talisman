@@ -1,26 +1,40 @@
 .sectors {
-    padding-top: 150px !important;
-    padding-bottom: 150px !important;
-    border: 1px solid rgb(56, 162, 40);
+    @extend .section_padding;
+    padding-top: 7.7% !important;
+    padding-bottom: 10% !important;
     position: relative;
     overflow: hidden;
 
+    @media screen and(max-width:$lg) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 16.7% !important;
+    }
+
     &__title{
-        padding-left: 100px;
+        @extend .title;
+        padding-left: 5.5%;
         margin: 40px 11%;
-
-        &:before{
-            width: 122px !important;
-            height: 167px !important;
-            background-image: url('../images/sectionLogo-2.png');
-            top: -30px;
-            left: 8px;
-            transform: translateX(-50%);
-    
+        @media screen and(max-width:$md) {
+         padding-left: 2rem;
+ 
         }
+        &:before{
+            background-image: url('../images/sectionLogo-2.png');
+            left: 1%;
+            transform: translateX(-50%);
+            bottom: -30%;
+    
+            @media screen and(max-width:$xl) {
+                width: clamp(6rem, 8vw, 10.8rem)!important; 
+                height: clamp(6rem, 12.5vw, 9.8rem)!important;
+            }
 
-        .point::after{
-            border-radius: 50%;
+            @media screen and(min-width:$xl) {
+                width: 122px !important;
+                height: 167px !important;
+            }
         }
 
     }
@@ -28,41 +42,67 @@
 	/* .sectors__cards */
 	&__cards {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 5%;
-        padding: 42px 6% 42px 6.8%;
+        margin: 0 auto;
+        padding-top: 3.3%;
         position: relative;
         z-index: 100;
-	}
+
+        @media screen and(max-width: $sm) {
+            gap: 3rem;
+        }
+
+        @media screen and(min-width: $sm) {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 44rem;
+        }
+
+        @media screen and(min-width: $md) {
+            gap: 3rem;
+        }
+ 
+        @media screen and(min-width: $lg) {
+            grid-template-columns: repeat(4, 1fr);
+            max-width: 95rem;
+            gap:1rem;
+        }
+
+        @media screen and(min-width: $xl) {
+            gap: 3rem;
+        }
+    }
 }
 
 
 .card {
-    padding: 1rem;
+    padding: 0 1rem;
     display: flex;
+    min-width: 100px;
     flex-direction: column;
     align-items: flex-start;
-    &:last-child{
-        padding-left: 19%;
+    @media screen and(max-width: $lg) {
+        align-items: center;
     }
 
 
     &__wrapImg{
-        min-height: 255px;
-        &:last-child{
-            align-self: end;
-        }
+        width: 100%;
+        padding-top: 75%;
+        position: relative;
     }
 
-    &__lessSize{
-        max-width: 225px;
-    }
 
     &__img{
+        position: absolute;
+        bottom: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: contain;
         object-position: 0 100%;
+        @media screen and(max-width: $lg) {
+            object-position:center;
+        }
     }
 
 
@@ -70,8 +110,25 @@
 	&__name {
         font-size: 38px;
         line-height: 46px;
-        padding: 40px 40px 25px 0;
+        padding: 15% 0% 25px 0;
         flex: 1 1;
+
+        @media screen and(max-width: $md) {
+            font-size: clamp(1.3rem, 4vw, 2.6rem); 
+            line-height: clamp( 2rem, 5vw, 2.7rem);
+        }
+
+        @media screen and(max-width: $lg) {
+            font-size: 30px;
+            text-align: center;
+            padding: 10% 0;
+        }
+        
+        @media screen and(min-width: $lg) and(max-width: $xxl) {
+            font-size: clamp(1rem, 3vw, 2.4rem); 
+            line-height: clamp(20px, 4vw, 45px);
+      
+        }
 	}
 
 
@@ -95,6 +152,7 @@
 .figure-2{
     right: 40px;
     bottom: 19%;
+
 }
 
 .figure-3{
