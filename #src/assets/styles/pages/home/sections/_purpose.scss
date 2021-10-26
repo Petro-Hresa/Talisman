@@ -2,8 +2,8 @@
     @extend .section_padding;
 	background-color: $Background-1;
 	position: relative;
-	padding-top: 5% !important;
-    padding-bottom:11% !important;
+	padding-top: 5.46% !important;
+    padding-bottom:10.6% !important;
 	color:$colorText-1;
     max-width: 20rem;
 
@@ -35,9 +35,13 @@
         background-color: rgb(101, 230, 65);
         border-radius: 100% 0% 0% 100% / 0% 100% 0% 100% ;
         transform: rotate(-15deg);
-        @media screen and(max-width:$lg) {
-            display: none;;
-        }
+        z-index: 1;
+
+        @media screen and(max-width:$xxl) {
+           bottom: 0;
+           left: 0;
+           transform: rotate(180deg);
+          }
 	}
 
     &__content{
@@ -53,7 +57,7 @@
 	&__title {
 		font-size: 100px;
         margin-top: 112px;
-        @extend .sections__title;
+        @extend .title;
 
         &:before{
             width: 122px !important;
@@ -63,37 +67,30 @@
             left: 50%;
             transform: translateX(-50%);
             @media screen and(max-width:$md) {
-                bottom: 70%;
+                // bottom: 90%;
             }
-            @media screen and(max-width:$lg) {
+            @media screen and(max-width:$xxl) {
                 width: clamp(5rem, 12.5vw, 8.5rem) !important; 
-              ;
+              
             }
         }
-        .point::after{
-            width: 5.5%;
-            right: -5%;
-            background-color: rgb(94, 6, 216);
-            border-radius: 50%;
-        }
+        
+    
 
         @media screen and(max-width:$sm) {
             margin-top: 6.8rem;
           }
 
-        @media screen and(max-width:$md) {
-            font-size: clamp(2rem, 7.5vw, 5.5rem); 
-            line-height: clamp(2rem, 7.5vw, 5.5rem);
-        }
+   
 
         @media screen and(max-width:$lg) {
           margin-top: 20%;
           padding: 0 1rem;
         }
-      
-        @media screen and(max-width: $xxl) {
-            font-size: clamp(3.5rem,  7vw, 6.25rem); 
-            line-height: clamp(3.5rem, 7vw, 6.25rem);
+  
+
+        span::after{
+            background-color: rgb(94, 6, 216);
         }
 	}
 
@@ -116,12 +113,17 @@
 	&__img {
         margin: 2rem auto;
         max-width: 720px;
-      
+    
+        @media screen and(max-width:$xxl){
+            z-index: 100;
+            position: relative;
+        }
+
         @media screen and(min-width:$xxl) {
             width: 720px;
             position: absolute;
             right: -3rem;
-            bottom: -4%;
+            bottom: -9%;
             height: 375px;
             transform: rotate(-45deg);
             overflow: hidden;
